@@ -6,6 +6,9 @@ all:
 	rm aslog.o
 	gcc -shared -o libaslog.so aslog.c -fPIC
 
+test: test.c aslog.c
+	gcc -o test test.c aslog.c -lpthread
+
 clean:
 	rm -f libaslog.so libaslog.a
 
