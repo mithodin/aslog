@@ -24,17 +24,6 @@ typedef struct logger_ {
 
 typedef aslog_Logger * aslog_Logger_t;
 
-aslog_Logframe *aslog_buffer;
-bool (*aslog_callback_log)(void *);
-size_t aslog_buffer_size;
-
-pthread_t aslog_thread_id; /**< Thread ID of the log worker thread */
-sem_t aslog_buffer_full; /**< Semaphore to signal when the log buffer is full */
-sem_t aslog_buffer_empty; /**< Semaphore to signal when the log buffer is empty */
-int aslog_buffer_write_index; /**< Where to write into the log buffer */
-int aslog_buffer_read_index; /**< Where to read from the log buffer */
-int aslog_thread_return_status; /**< Signals successfull termination of the log worker thread */
-
 //private functions
 void *aslog_logging(void *);
 
