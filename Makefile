@@ -7,10 +7,10 @@ all:
 	gcc -shared -o libaslog.so aslog.c -fPIC
 
 test: test.c aslog.c
-	gcc -o test test.c aslog.c -lpthread
+	gcc -g -o test test.c aslog.c -lpthread
 
 clean:
-	rm -f libaslog.so libaslog.a
+	rm -f libaslog.so libaslog.a test
 
 install: all
 	cp libaslog.so /usr/local/lib/
