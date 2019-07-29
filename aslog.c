@@ -81,6 +81,7 @@ bool aslog_shutdown(aslog_Logger_t log){
 		free(log);
 		return false;
 	}
+	free(log->buffer);
 	free(log);
 	return true;
 }
